@@ -28,16 +28,15 @@ router.post('/:puzzleId', restricted, async (req, res) => {
     console.log("ROUTER GUY", puzzleStr)
     console.log("ROUTER GUY2", email)
     console.log("ROUTER GUY3", puzzleId)
-    await UserPuzzles
-    .savePuzzle(puzzleStr, email, puzzleId)
-    .then(puzzle => {
+    await UserPuzzles.savePuzzle(puzzleStr, email, puzzleId);
+    puzzle => {
         console.log("THEN PUZZ", puzzle)
         res.status(200).json(puzzle)
         console.log(email)
-      })
+      }
     } catch (err) {
       res.status(500).json({ msg: "erraaaaa"  });
-    }
+    };
 })
 
 // router.post('/puzzles', restricted, (req, res) => {
